@@ -64,7 +64,9 @@ func Wraps(handler droplet.Handler, opts ...wrapper.SetWrapOpt) func(*gin.Contex
 					"err", err)
 				return
 			}
-			ctx.Data(resp.GetStatusCode(), "application/json", bs)
+			if ctx.Writer.Size() < 0 {
+				ctx.Data(resp.GetStatusCode(), "application/json", bs)
+			}
 		default:
 			bs, err := json.Marshal(ret)
 			if err != nil {
@@ -72,7 +74,9 @@ func Wraps(handler droplet.Handler, opts ...wrapper.SetWrapOpt) func(*gin.Contex
 					"err", err)
 				return
 			}
-			ctx.Data(http.StatusOK, "application/json", bs)
+			if ctx.Writer.Size() < 0 {
+				ctx.Data(http.StatusOK, "application/json", bs)
+			}
 		}
 	}
 }
