@@ -3,7 +3,7 @@ package codec
 import (
 	"bytes"
 	"fmt"
-	"github.com/shiningrush/droplet/data"
+	"github.com/api7/droplet/data"
 	"io"
 	"io/ioutil"
 	"net/http"

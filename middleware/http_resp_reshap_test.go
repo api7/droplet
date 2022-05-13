@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"fmt"
-	"github.com/shiningrush/droplet"
-	"github.com/shiningrush/droplet/data"
+	"github.com/api7/droplet"
+	"github.com/api7/droplet/data"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"net/http"

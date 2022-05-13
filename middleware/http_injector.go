@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"github.com/shiningrush/droplet"
+	"github.com/api7/droplet"
 	"net/http"
 )
 
