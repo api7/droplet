@@ -19,10 +19,10 @@ var (
 )
 
 type BaseError struct {
-	Code      int
-	Message   string
-	Data      interface{}
-	SourceSrv string
+	Code      int         `json:"code"`
+	Message   string      `json:"message"`
+	Data      interface{} `json:"data"`
+	SourceSrv string      `json:"-"`
 }
 
 func (e *BaseError) Error() string {
