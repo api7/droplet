@@ -1,8 +1,8 @@
 package droplet
 
 import (
-	"github.com/shiningrush/droplet/codec"
-	"github.com/shiningrush/droplet/data"
+	"github.com/api7/droplet/codec"
+	"github.com/api7/droplet/data"
 )
 
 var (

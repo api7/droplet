@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"github.com/shiningrush/droplet"
+	"github.com/api7/droplet"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"net/http"
