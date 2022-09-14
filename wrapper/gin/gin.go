@@ -25,7 +25,7 @@ func Wraps(handler droplet.Handler, opts ...wrapper.SetWrapOpt) func(*gin.Contex
 		dCtx.SetContext(ctx.Request.Context())
 		dCtx.Set(GinContextKey, ctx)
 
-		ret, _ := droplet.NewPipe().
+		ret, err := droplet.NewPipe().
 			Add(middleware.NewHttpInfoInjectorMiddleware(middleware.HttpInfoInjectorOption{
 				ReqFunc: func() *http.Request {
 					return ctx.Request
@@ -42,6 +42,9 @@ func Wraps(handler droplet.Handler, opts ...wrapper.SetWrapOpt) func(*gin.Contex
 			Add(middleware.NewTrafficLogMiddleware(opt.TrafficLogOpt)).
 			SetOrchestrator(opt.Orchestrator).
 			Run(handler, droplet.InitContext(dCtx))
+		if err != nil {
+			log.Error("run handler failed", "err", err)
+		}
 
 		switch ret.(type) {
 		case *data.FileResponse:
