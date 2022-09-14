@@ -1,8 +1,8 @@
 package wrapper
 
 import (
-	"github.com/shiningrush/droplet"
-	"github.com/shiningrush/droplet/middleware"
+	"github.com/api7/droplet"
+	"github.com/api7/droplet/middleware"
 	"reflect"
 )
 

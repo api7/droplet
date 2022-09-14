@@ -68,5 +68,5 @@ and provides a lot of convenient middleware based on this.
 ## Intall
 
 ```
-go get github.com/shiningrush/droplet
+go get github.com/api7/droplet
 ```

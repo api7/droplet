@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"github.com/shiningrush/droplet"
-	"github.com/shiningrush/droplet/data"
+	"github.com/api7/droplet"
+	"github.com/api7/droplet/data"
 )
 
 type HttpRespReshapeMiddleware struct {

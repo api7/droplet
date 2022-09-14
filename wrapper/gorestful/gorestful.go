@@ -3,16 +3,16 @@ package gorestful
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/api7/droplet"
+	"github.com/api7/droplet/data"
+	"github.com/api7/droplet/log"
+	"github.com/api7/droplet/middleware"
+	"github.com/api7/droplet/wrapper"
 	"github.com/emicklei/go-restful/v3"
-	"github.com/shiningrush/droplet"
-	"github.com/shiningrush/droplet/data"
-	"github.com/shiningrush/droplet/log"
-	"github.com/shiningrush/droplet/middleware"
-	"github.com/shiningrush/droplet/wrapper"
 	"net/http"
 )
 
-func Wraps(handler droplet.Handler, opts ...wrapper.SetWrapOpt) func(*restful.Request,*restful.Response) {
+func Wraps(handler droplet.Handler, opts ...wrapper.SetWrapOpt) func(*restful.Request, *restful.Response) {
 	return func(request *restful.Request, response *restful.Response) {
 		opt := &wrapper.WrapOptBase{}
 		for i := range opts {

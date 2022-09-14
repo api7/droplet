@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/api7/droplet"
+	"github.com/api7/droplet/wrapper"
+	ginwrap "github.com/api7/droplet/wrapper/gin"
 	"github.com/gin-gonic/gin"
-	"github.com/shiningrush/droplet"
-	"github.com/shiningrush/droplet/wrapper"
-	ginwrap "github.com/shiningrush/droplet/wrapper/gin"
 	"reflect"
 )
 
