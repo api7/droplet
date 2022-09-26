@@ -15,6 +15,11 @@ func (m *handlerMiddleware) SetNext(next Middleware) {
 }
 
 func (m *handlerMiddleware) Handle(ctx Context) error {
+	// if the request is rewritten, the handler should be called
+	if ctx.Rewritten() {
+		return nil
+	}
+
 	rs, err := m.handler(ctx)
 	ctx.SetOutput(rs)
 	return err

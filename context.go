@@ -14,14 +14,20 @@ type Context interface {
 	Output() interface{}
 	SetPath(path string)
 	Path() string
+
+	// Rewritten indicates whether the request path has been rewritten.
+	Rewritten() bool
+	// SetRewrite sets the rewrite flag.
+	SetRewrite(rewritten bool)
 }
 
 type emptyContext struct {
-	cxt    context.Context
-	dict   map[string]interface{}
-	input  interface{}
-	output interface{}
-	path   string
+	cxt       context.Context
+	dict      map[string]interface{}
+	input     interface{}
+	output    interface{}
+	path      string
+	rewritten bool
 }
 
 func NewContext() *emptyContext {
@@ -86,4 +92,12 @@ func (c *emptyContext) SetPath(path string) {
 
 func (c *emptyContext) Path() string {
 	return c.path
+}
+
+func (c *emptyContext) SetRewrite(rewritten bool) {
+	c.rewritten = rewritten
+}
+
+func (c *emptyContext) Rewritten() bool {
+	return c.rewritten
 }
