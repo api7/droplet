@@ -42,6 +42,11 @@ func (mw *HttpRespReshapeMiddleware) Handle(ctx droplet.Context) error {
 		resp := ctx.Output().(droplet.HttpResponse)
 		resp.SetReqID(ctx.GetString(KeyRequestID))
 	default:
+		// if the request is rewritten, should not output here.
+		if ctx.Rewritten() {
+			return nil
+		}
+
 		resp := droplet.Option.ResponseNewFunc()
 		resp.Set(code, message, ctx.Output())
 		resp.SetReqID(ctx.GetString(KeyRequestID))
